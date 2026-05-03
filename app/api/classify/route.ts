@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { parseCSV } from '@/lib/csvParser';
 import { classifyTransactions } from '@/lib/gemini';
 
-export const maxDuration = 300;
+export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   try {
