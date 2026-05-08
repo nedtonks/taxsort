@@ -171,8 +171,11 @@ def classify_batch(model, batch: list[dict]) -> list[dict]:
 def classify(transactions: list[dict], api_key: str) -> list[dict]:
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel(
-        model_name="gemini-3.1-flash-lite",
+        model_name="gemini-2.5-flash",
         system_instruction=SYSTEM_PROMPT,
+        generation_config=genai.GenerationConfig(
+            response_mime_type="application/json",
+        ),
     )
 
     results = []
